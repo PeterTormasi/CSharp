@@ -1,0 +1,4 @@
+C:\Users\info\Documents\CSharp\obj\Debug\net10.0\CShárp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\info\Documents\CSharp\obj\Debug\net10.0\CShárp.AssemblyInfoInputs.cache
+C:\Users\info\Documents\CSharp\obj\Debug\net10.0\CShárp.AssemblyInfo.cs
+C:\Users\info\Documents\CSharp\obj\Debug\net10.0\CShárp.csproj.CoreCompileInputs.cache
