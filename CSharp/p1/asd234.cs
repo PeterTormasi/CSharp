@@ -29,8 +29,15 @@ namespace asd
     }
     internal class ProgramTermekek
     {
+        static string ReadLine(string prompt)
+        {
+            Console.WriteLine(prompt);
+            return Console.ReadLine();
+        }
         static void Main(string[] args)
         {
+            do
+            {
             string filename = "termekek.txt";
 
             List<Termek> termekek = new List<Termek>();
@@ -101,14 +108,15 @@ namespace asd
             termekek.OrderBy(t => t.Ar).ThenByDescending(t => t.Kaloria);
 
             Console.WriteLine("9. Keresés:");
-            string nevKer = Console.ReadLine();
-            var keresettNev = termekek.Where(t => t.Nev == nevKer);
+            string nevKer = ReadLine("Keresett termék neve: ");
+            var keresettNev = termekek.Where(t => t.Nev.Contains(nevKer));
             if (!keresettNev.Any())
             {
                 Console.WriteLine("Nincs ilyen nevű termék.");
             }
             else
             {
+                Console.WriteLine("Talált termékek:");
                 foreach (var termek in keresettNev)
                 {
                     Console.WriteLine(termek.ToString());
@@ -130,6 +138,27 @@ namespace asd
             Console.WriteLine($"   Kalória: {OsszesKaloria} kcal");
             Console.WriteLine($"   Fehérje: {OsszesFeherje} g");
             Console.WriteLine($"   Zsír: {OsszesZsir} g");
+
+            Console.WriteLine("12. Hozzáadás:");
+            string tipusH = ReadLine("Típus: ");
+            string nev = ReadLine("Név: ");
+            int tomeg = int.Parse(ReadLine("Tömeg (g): "));
+            int kaloria = int.Parse(ReadLine("Kalória (kcal): "));
+            double feherje = double.Parse(ReadLine("Fehérje (g): "));
+            double szenhidrat = double.Parse(ReadLine("Szénhidrát (g): "));
+            double zsir = double.Parse(ReadLine("Zsír (g): "));
+            int ar = int.Parse(ReadLine("Ár (Ft): "));
+
+            StreamWriter sw = new StreamWriter(filename, true);
+            sw.WriteLine($"{tipusH};{nev};{tomeg};{kaloria};{feherje};{szenhidrat};{zsir};{ar}");
+            sw.Close();
+
+            string input = ReadLine("Termék hozzáadva. Ne írj semmit a folytatáshoz, mást a kilépéshez.");
+            if (input != "")
+            {
+                break;
+            }
+            } while (true);
         }
     }
 }
