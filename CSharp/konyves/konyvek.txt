@@ -1,0 +1,6 @@
+J.K. Rowling;Harry Potter és a bölcsek köve;1997;True
+George Orwell;1984;1949;True
+Douglas Adams;Galaxis Útikalauz Stopposoknak;1979;False
+Isaac Asimov;Alapítvány;1951;True
+J.R.R. Tolkien;A Gyűrűk Ura;1954;True
+asd;asd;1900;True
